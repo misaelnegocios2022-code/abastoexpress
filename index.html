@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Abasto Express · Catálogo Profesional</title>
+
+  <style>
+    :root {
+      --verde-limon: #d9ff4f;
+      --verde-profundo: #2e7d32;
+      --verde-intermedio: #5cab2a;
+
+      --negro-main: #1a1a1a;
+      --negro-soft: #2a2a2a;
+      --grafito: #1f1f1f;
+      --gris-texto: #555555;
+      --gris-borde: #d4d4d4;
+      --gris-card: #f6f6f6;
+      --gris-page: #efefef;
+      --gris-section: #ffffff;
+      --gris-about-bg: #f7f7f7;
+
+      --radius-card: 16px;
+      --radius-section: 20px;
+      --radius-panel: 20px;
+
+      --shadow-card: 0 24px 40px rgba(0,0,0,0.08);
+      --shadow-header: 0 28px 40px rgba(0,0,0,0.4);
+      --shadow-section: 0 32px 60px rgba(0,0,0,0.08);
+      --shadow-cart: 0 32px 60px rgba(0,0,0,0.45);
+
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Poppins", "Roboto", "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-main);
+    }
+
+    body {
+      background-color: var(--gris-page);
+      color: var(--negro-main);
+      line-height: 1.45;
+      padding-bottom: 6rem;
+    }
+
+    /* ===========================
+       HEADER CORPORATIVO PREMIUM
+       =========================== */
+    header {
+      position: relative;
+      z-index: 20;
+      background:
+        linear-gradient(
+          160deg,
+          var(--verde-limon) 0%,
+          #b6f63b 20%,
+          var(--verde-intermedio) 45%,
+          #3a6a27 65%,
+          var(--verde-profundo) 80%,
+          #1f1f1f 100%
+        );
+      color: #fff;
+      box-shadow: var(--shadow-header);
+      border-bottom: 4px solid rgba(0,0,0,0.6);
+    }
+
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 2rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* Logo centrado corporativo */
+    .logo-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #fff;
+    }
+
+    .logo-image {
+      width: 86px;
+      height: 86px;
+      border-radius: 16px;
+      background: #f0f0f0;
+      border: 2px solid rgba(255,255,255,0.5);
+      box-shadow: 0 16px 30px rgba(0,0,0,0.6);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: .75rem;
+    }
+
+    .logo-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-name {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.2;
+      letter-spacing: -0.03rem;
+    }
+
+    .brand-slogan {
+      font-size: .8rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.9);
+      margin-top: .3rem;
+    }
+
+    /* Línea corporativa con datos */
+    .header-info-line {
+      width: 100%;
+      max-width: 900px;
+      margin-top: 1rem;
+      background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.3);
+      box-shadow: 0 20px 32px rgba(0,0,0,0.6);
+      border-radius: 12px;
+      padding: .75rem 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem 2rem;
+      color: #fff;
+      font-size: .8rem;
+      line-height: 1.3;
+      font-weight: 500;
+    }
+
+    .header-info-item {
+      display: flex;
+      flex-wrap: wrap;
+      color: #fff;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .info-label {
+      font-size: .7rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+      margin-right: .4rem;
+    }
+
+    .info-value {
+      color: #fff;
+    }
+
+    /* Botón carrito arriba derecha tipo empresa */
+    .cart-button {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(31,31,31,0.9);
+      border: 2px solid rgba(255,255,255,0.3);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      border-radius: 14px;
+      padding: .6rem .8rem;
+      line-height: 1.2;
+      box-shadow: 0 20px 32px rgba(0,0,0,0.7);
+      min-width: 64px;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .cart-button span {
+      display: block;
+      font-size: .7rem;
+      font-weight: 500;
+      opacity: .9;
+    }
+
+    /* ===========================
+       CONTENIDO CATÁLOGO
+       =========================== */
+    main {
+      max-width: 1280px;
+      margin: 2rem auto 4rem;
+      padding: 0 1.25rem;
+      display: grid;
+      gap: 2.5rem;
+    }
+
+    section.catalog-block {
+      background: var(--gris-section);
+      border-radius: var(--radius-section);
+      box-shadow: var(--shadow-section);
+      border: 1px solid rgba(0,0,0,0.05);
+      padding: 2rem 1.5rem 2.5rem;
+    }
+
+    .cat-head {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .cat-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--negro-main);
+      letter-spacing: -0.03rem;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      justify-content: center;
+    }
+
+    .cat-desc {
+      margin-top: .5rem;
+      font-size: .8rem;
+      font-weight: 400;
+      color: var(--gris-texto);
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
+      gap: 1.5rem;
+      width: 100%;
+    }
+
+    .prod-card {
+      background: var(--gris-card);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--gris-borde);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .prod-imgbox {
+      background: #fff;
+      width: 100%;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--gris-borde);
+    }
+
+    .prod-imgbox img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .prod-info {
+      background: var(--gris-card);
+      display: grid;
+      grid-template-rows: auto auto auto;
+      padding: 1rem 1rem 1.25rem;
+    }
+
+    .prod-name {
+      color: var(--negro-main);
+      font-size: .95rem;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: .5rem;
+      letter-spacing: -0.02rem;
+    }
+
+    .prod-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      row-gap: .4rem;
+      margin-bottom: .6rem;
+    }
+
+    .prod-price {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: .4rem;
+      line-height: 1.3;
+    }
+
+    .price-main {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--verde-profundo);
+      letter-spacing: -0.03rem;
+    }
+
+    .price-unit {
+      font-size: .7rem;
+      color: var(--gris-texto);
+    }
+
+    .prod-addwrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .prod-cta {
+      background: var(--grafito);
+      color: #fff;
+      font-size: .75rem;
+      font-weight: 600;
+      border-radius: 10px;
+      padding: .5rem .75rem;
+      line-height: 1.2;
+      border: 1px solid rgba(255,255,255,0.15);
+      cursor: pointer;
+      user-select: none;
+      box-shadow: 0 18px 32px rgba(0,0,0,0.5);
+    }
+
+    .prod-cta:hover {
+      filter: brightness(1.1);
+    }
+
+    /* ===========================
+       PANEL CARRITO LATERAL PREMIUM
+       =========================== */
+    .cart-panel-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.45);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s ease;
+      z-index: 200;
+    }
+    .cart-panel-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: min(360px, 90%);
+      background: var(--grafito);
+      color: #fff;
+      box-shadow: var(--shadow-cart);
+      border-left: 2px solid rgba(255,255,255,0.08);
+      border-top-left-radius: var(--radius-panel);
+      border-bottom-left-radius: var(--radius-panel);
+      padding: 1rem 1rem 2rem;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform .25s ease;
+      z-index: 201;
+    }
+
+    .cart-panel.open {
+      transform: translateX(0);
+    }
+
+    .cart-header-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .cart-titlewrap {
+      display: flex;
+      flex-direction: column;
+      color: #fff;
+    }
+
+    .cart-title {
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.2;
+      color: #fff;
+    }
+
+    .cart-sub {
+      font-size: .7rem;
+      color: #ccc;
+      line-height: 1.2;
+      margin-top: .25rem;
+    }
+
+    .cart-close-btn {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      padding: .4rem .6rem;
+      font-size: .7rem;
+      font-weight: 600;
+      line-height: 1.2;
+      color: #fff;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .cart-items {
+      flex: 1 1 auto;
+      min-height: 120px;
+      max-height: 180px;
+      overflow-y: auto;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: .75rem;
+      margin-bottom: 1rem;
+    }
+
+    .cart-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      row-gap: .3rem;
+      column-gap: .5rem;
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: .5rem .5rem .6rem;
+      font-size: .8rem;
+      color: #fff;
+      margin-bottom: .5rem;
+    }
+
+    .cart-row-name {
+      font-weight: 600;
+      line-height: 1.3;
+      color: #fff;
+    }
+
+    .cart-qty-controls {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+
+    .qty-btn {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 6px;
+      width: 24px;
+      height: 24px;
+      font-size: .75rem;
+      font-weight: 600;
+      line-height: 22px;
+      color: #fff;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .cart-row-details {
+      font-size: .7rem;
+      color: #bbb;
+      line-height: 1.3;
+    }
+
+    .cart-row-subtotal {
+      font-size: .75rem;
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--verde-limon);
+      text-align: right;
+    }
+
+    .cart-total-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: .9rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .cart-total-label {
+      color: #fff;
+    }
+
+    .cart-total-amount {
+      color: var(--verde-limon);
+      font-weight: 700;
+    }
+
+    .cart-form {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: .75rem;
+      margin-bottom: 1rem;
+      max-height: 220px;
+      overflow-y: auto;
+    }
+
+    .cart-form-title {
+      font-size: .8rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: .5rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: .5rem;
+    }
+
+    .form-label {
+      font-size: .7rem;
+      font-weight: 500;
+      color: #ccc;
+      margin-bottom: .3rem;
+    }
+
+    .form-input {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 6px;
+      padding: .5rem .6rem;
+      font-size: .75rem;
+      line-height: 1.2;
+      color: #fff;
+      outline: none;
+      width: 100%;
+    }
+
+    .form-input::placeholder {
+      color: #888;
+    }
+
+    .wa-send-btn {
+      background: var(--verde-profundo);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      border-radius: 10px;
+      padding: .75rem .9rem;
+      line-height: 1.2;
+      border: 1px solid rgba(255,255,255,0.15);
+      cursor: pointer;
+      user-select: none;
+      text-align: center;
+      box-shadow: 0 20px 32px rgba(0,0,0,0.6);
+    }
+    .wa-send-btn:hover {
+      filter: brightness(1.1);
+    }
+
+    /* ===========================
+       SECCIÓN INSTITUCIONAL
+       =========================== */
+    .about-block {
+      background: var(--gris-about-bg);
+      border-radius: var(--radius-section);
+      box-shadow: var(--shadow-section);
+      border: 1px solid rgba(0,0,0,0.05);
+      padding: 2rem 1.5rem 2.5rem;
+    }
+
+    .about-head {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-title {
+      display: inline-block;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--negro-main);
+      letter-spacing: -0.03rem;
+      border-bottom: 3px solid var(--verde-limon);
+      padding-bottom: .4rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(min(260px,100%),1fr));
+      gap: 1.5rem;
+    }
+
+    .about-card {
+      background: var(--gris-section);
+      border: 1px solid var(--gris-borde);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      padding: 1rem 1rem 1.25rem;
+      text-align: left;
+    }
+
+    .about-card-title {
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--negro-main);
+      margin-bottom: .5rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .about-card-title span.emoji {
+      font-size: 1rem;
+    }
+
+    .about-card-text {
+      font-size: .8rem;
+      color: var(--gris-texto);
+      line-height: 1.5;
+      text-align: justify;
+    }
+
+    footer {
+      max-width: 1280px;
+      margin: 0 auto 4rem;
+      padding: 0 1.25rem;
+      color: var(--gris-texto);
+      font-size: .7rem;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    @media (min-width: 768px) {
+      .brand-name {
+        font-size: 1.4rem;
+      }
+      .brand-slogan {
+        font-size: .8rem;
+      }
+      .info-label {
+        font-size: .7rem;
+      }
+      .info-value {
+        font-size: .8rem;
+      }
+
+      .cat-title {
+        font-size: 1.2rem;
+      }
+      .catalog-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .cat-title {
+        font-size: 1.3rem;
+      }
+      .prod-name {
+        font-size: 1rem;
+      }
+      .price-main {
+        font-size: 1.05rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+
+    <div class="cart-button" id="openCartBtn">
+      🛒 Carrito
+      <span id="miniCartCount">0 items</span>
+    </div>
+
+    <div class="logo-block">
+      <div class="logo-image">
+        <img src="assets/logo/abasto_express.png" alt="Abasto Express logo">
+      </div>
+      <div class="brand-name">Abasto Express</div>
+      <div class="brand-slogan">¡Frescas a tu hogar!</div>
+    </div>
+
+    <div class="header-info-line">
+      <div class="header-info-item">
+        <div class="info-label">Ubicación:</div>
+        <div class="info-value">Mercado Central de Abasto, Bloque J-8</div>
+      </div>
+      <div class="header-info-item">
+        <div class="info-label">WhatsApp:</div>
+        <div class="info-value">0976&nbsp;730&nbsp;666</div>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<main>
+
+  <section class="catalog-block" id="cat-frutas">
+    <div class="cat-head">
+      <div class="cat-title">Frutas 🍍</div>
+      <div class="cat-desc">Dulces, jugosas, listas para tu mesa</div>
+    </div>
+    <div class="catalog-grid" id="grid-frutas"></div>
+  </section>
+
+  <section class="catalog-block" id="cat-hortalizas">
+    <div class="cat-head">
+      <div class="cat-title">Hortalizas 🥕</div>
+      <div class="cat-desc">Selección directa del mercado</div>
+    </div>
+    <div class="catalog-grid" id="grid-hortalizas"></div>
+  </section>
+
+  <section class="catalog-block" id="cat-verdeos">
+    <div class="cat-head">
+      <div class="cat-title">Verdeos 🥬</div>
+      <div class="cat-desc">Frescos para tu ensalada, tu sopa o tu guiso</div>
+    </div>
+    <div class="catalog-grid" id="grid-verdeos"></div>
+  </section>
+
+  <section class="about-block">
+    <div class="about-head">
+      <div class="about-title">Sobre nosotros</div>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="about-card-title"><span class="emoji">🏗️</span><span>Historia</span></div>
+        <div class="about-card-text">
+          Abasto Express nació en septiembre de 2022 con la visión de aportar practicidad
+          y frescura al día a día de las familias paraguayas. Seleccionamos frutas,
+          hortalizas y verdeos directamente del mercado para garantizar calidad y
+          envíos rápidos.
+        </div>
+      </div>
+
+      <div class="about-card">
+        <div class="about-card-title"><span class="emoji">🎯</span><span>Misión</span></div>
+        <div class="about-card-text">
+          Somos una empresa comprometida con la venta y entrega de frutos del campo,
+          con asesoramiento personalizado para que el cliente compre lo que realmente
+          necesita según su estilo de vida, promoviendo practicidad, salud y bienestar.
+        </div>
+      </div>
+
+      <div class="about-card">
+        <div class="about-card-title"><span class="emoji">👁️</span><span>Visión</span></div>
+        <div class="about-card-text">
+          Convertirnos en una fuente importante para las familias y comercios a los que
+          servimos, aportando valor a la sociedad y al desarrollo sostenible del sector
+          alimentario.
+        </div>
+      </div>
+
+      <div class="about-card">
+        <div class="about-card-title"><span class="emoji">🤝</span><span>Valores</span></div>
+        <div class="about-card-text">
+          Honestidad. Justicia. Transparencia. Cordialidad. Respeto.
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="cart-panel-overlay" id="cartOverlay">
+  <aside class="cart-panel" id="cartPanel">
+    <div class="cart-header-line">
+      <div class="cart-titlewrap">
+        <div class="cart-title">Tu pedido</div>
+        <div class="cart-sub">Revisá cantidades antes de enviar</div>
+      </div>
+      <div class="cart-close-btn" id="closeCartBtn">Cerrar ✕</div>
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="cart-total-line">
+      <div class="cart-total-label">Total:</div>
+      <div class="cart-total-amount" id="cartTotal">₲ 0</div>
+    </div>
+
+    <div class="cart-form">
+      <div class="cart-form-title">Datos de envío</div>
+
+      <div class="form-field">
+        <label class="form-label">Razón social</label>
+        <input class="form-input" id="fieldRazon" placeholder="Ej: Abasto Express Group EAS">
+      </div>
+
+      <div class="form-field">
+        <label class="form-label">RUC</label>
+        <input class="form-input" id="fieldRUC" placeholder="RUC del cliente / empresa">
+      </div>
+
+      <div class="form-field">
+        <label class="form-label">Ubicación</label>
+        <input class="form-input" id="fieldUbicacion" placeholder="Barrio / Ciudad">
+      </div>
+
+      <div class="form-field">
+        <label class="form-label">Dirección</label>
+        <input class="form-input" id="fieldDireccion" placeholder="Calle / esquina">
+      </div>
+
+      <div class="form-field">
+        <label class="form-label">Nº de casa / Piso / Dpto</label>
+        <input class="form-input" id="fieldCasa" placeholder="Casa 12 / Torre A piso 4">
+      </div>
+
+      <div class="form-field">
+        <label class="form-label">Referencia</label>
+        <input class="form-input" id="fieldRef" placeholder="Portón negro, al lado de...">
+      </div>
+
+      <div class="form-field">
+        <label class="form-label">Teléfono recepcionista</label>
+        <input class="form-input" id="fieldRecep" placeholder="Ej: 0971 000 000">
+      </div>
+    </div>
+
+    <div class="wa-send-btn" id="sendWhatsappBtn">
+      Enviar pedido por WhatsApp
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div>Abasto Express · Mercado Central de Abasto, Bloque J-8</div>
+  <div>Pedidos al WhatsApp 0976 730 666</div>
+  <div style="margin-top:.5rem;">"Estimados, deseo realizar un pedido desde Abasto Express."</div>
+</footer>
+
+<script>
+function formatoGuarani(n) {
+  const partes = n.toString().split("");
+  let out = [];
+  let count = 0;
+  for (let i = partes.length - 1; i >= 0; i--) {
+    out.unshift(partes[i]);
+    count++;
+    if (count === 3 && i !== 0) {
+      out.unshift(".");
+      count = 0;
+    }
+  }
+  return "₲ " + out.join("");
+}
+
+const cart = {};
+
+function addToCart(prod) {
+  if (!cart[prod.id]) {
+    cart[prod.id] = { ...prod, qty: 1 };
+  } else {
+    cart[prod.id].qty += 1;
+  }
+  renderCart();
+}
+
+function changeQty(id, delta) {
+  if (!cart[id]) return;
+  cart[id].qty += delta;
+  if (cart[id].qty <= 0) {
+    delete cart[id];
+  }
+  renderCart();
+}
+
+function calcTotal() {
+  let total = 0;
+  for (const pid in cart) {
+    const item = cart[pid];
+    const p = item.precio || 0;
+    total += p * item.qty;
+  }
+  return total;
+}
+
+function renderCart() {
+  const cartItemsEl = document.getElementById("cartItems");
+  const miniCartCount = document.getElementById("miniCartCount");
+  const cartTotalEl = document.getElementById("cartTotal");
+
+  cartItemsEl.innerHTML = "";
+
+  let countAll = 0;
+
+  for (const pid in cart) {
+    const item = cart[pid];
+    countAll += item.qty;
+
+    const row = document.createElement("div");
+    row.className = "cart-row";
+
+    const name = document.createElement("div");
+    name.className = "cart-row-name";
+    name.textContent = item.nombre;
+
+    const qtyControls = document.createElement("div");
+    qtyControls.className = "cart-qty-controls";
+
+    const minusBtn = document.createElement("div");
+    minusBtn.className = "qty-btn";
+    minusBtn.textContent = "−";
+    minusBtn.onclick = () => changeQty(item.id, -1);
+
+    const qtyVal = document.createElement("div");
+    qtyVal.style.minWidth = "24px";
+    qtyVal.style.textAlign = "center";
+    qtyVal.textContent = item.qty;
+
+    const plusBtn = document.createElement("div");
+    plusBtn.className = "qty-btn";
+    plusBtn.textContent = "+";
+    plusBtn.onclick = () => changeQty(item.id, +1);
+
+    qtyControls.appendChild(minusBtn);
+    qtyControls.appendChild(qtyVal);
+    qtyControls.appendChild(plusBtn);
+
+    const details = document.createElement("div");
+    details.className = "cart-row-details";
+    const priceText = (item.precio && item.precio > 0)
+      ? formatoGuarani(item.precio) + " / " + (item.unidad || "kg")
+      : "Consultar precio";
+    details.textContent = priceText;
+
+    const subtotal = document.createElement("div");
+    subtotal.className = "cart-row-subtotal";
+    if (item.precio && item.precio > 0) {
+      subtotal.textContent = formatoGuarani(item.precio * item.qty);
+    } else {
+      subtotal.textContent = "Consultar";
+    }
+
+    row.appendChild(name);
+    row.appendChild(qtyControls);
+    row.appendChild(details);
+    row.appendChild(subtotal);
+
+    cartItemsEl.appendChild(row);
+  }
+
+  miniCartCount.textContent = countAll + (countAll === 1 ? " item" : " items");
+
+  const total = calcTotal();
+  cartTotalEl.textContent = formatoGuarani(total);
+}
+
+function crearProductoCard(prod, categoria) {
+  const card = document.createElement("div");
+  card.className = "prod-card";
+
+  const imgBox = document.createElement("div");
+  imgBox.className = "prod-imgbox";
+
+  const img = document.createElement("img");
+  img.src = `assets/${categoria}/${prod.id}.jpg`;
+  img.alt = prod.nombre;
+  imgBox.appendChild(img);
+
+  const info = document.createElement("div");
+  info.className = "prod-info";
+
+  const nameEl = document.createElement("div");
+  nameEl.className = "prod-name";
+  nameEl.textContent = prod.nombre;
+
+  const line = document.createElement("div");
+  line.className = "prod-line";
+
+  const priceWrap = document.createElement("div");
+  priceWrap.className = "prod-price";
+
+  const priceMain = document.createElement("span");
+  priceMain.className = "price-main";
+
+  if (prod.precio && prod.precio > 0) {
+    priceMain.textContent = formatoGuarani(prod.precio);
+  } else {
+    priceMain.textContent = "Consultar";
+  }
+
+  const priceUnit = document.createElement("span");
+  priceUnit.className = "price-unit";
+  priceUnit.textContent = `/${prod.unidad || "kg"}`;
+
+  priceWrap.appendChild(priceMain);
+  priceWrap.appendChild(priceUnit);
+
+  line.appendChild(priceWrap);
+
+  const addWrap = document.createElement("div");
+  addWrap.className = "prod-addwrap";
+
+  const addBtn = document.createElement("div");
+  addBtn.className = "prod-cta";
+  addBtn.textContent = "Agregar";
+  addBtn.onclick = () => {
+    addToCart(prod);
+  };
+
+  addWrap.appendChild(addBtn);
+
+  info.appendChild(nameEl);
+  info.appendChild(line);
+  info.appendChild(addWrap);
+
+  card.appendChild(imgBox);
+  card.appendChild(info);
+
+  return card;
+}
+
+function renderCategoria(arr, gridId, categoria) {
+  const grid = document.getElementById(gridId);
+  grid.innerHTML = "";
+  arr.forEach(prod => {
+    grid.appendChild(crearProductoCard(prod, categoria));
+  });
+}
+
+function buildWhatsappMessage() {
+  const razon = document.getElementById("fieldRazon").value.trim();
+  const ruc = document.getElementById("fieldRUC").value.trim();
+  const ubic = document.getElementById("fieldUbicacion").value.trim();
+  const dir = document.getElementById("fieldDireccion").value.trim();
+  const casa = document.getElementById("fieldCasa").value.trim();
+  const ref = document.getElementById("fieldRef").value.trim();
+  const recep = document.getElementById("fieldRecep").value.trim();
+
+  let msg = "Estimados, deseo realizar un pedido desde Abasto Express.%0A%0A";
+  msg += "🛍️ Productos solicitados:%0A";
+
+  for (const pid in cart) {
+    const item = cart[pid];
+    const subtotal = (item.precio && item.precio > 0)
+      ? (item.precio * item.qty)
+      : null;
+
+    msg += "• " + item.nombre + " x " + item.qty;
+    if (item.unidad) {
+      msg += " " + item.unidad;
+    }
+    if (item.precio && item.precio > 0) {
+      msg += " = ₲ " + (item.precio * item.qty).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    } else {
+      msg += " (consultar precio)";
+    }
+    msg += "%0A";
+  }
+
+  const totalGs = calcTotal();
+  msg += "%0ATotal estimado: ₲ " + totalGs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "%0A%0A";
+
+  msg += "📦 Datos de envío:%0A";
+  msg += "Razón social: " + razon + "%0A";
+  msg += "RUC: " + ruc + "%0A";
+  msg += "Ubicación: " + ubic + "%0A";
+  msg += "Dirección: " + dir + "%0A";
+  msg += "Nº de casa / Piso / Dpto: " + casa + "%0A";
+  msg += "Referencia: " + ref + "%0A";
+  msg += "Teléfono recepcionista: " + recep + "%0A";
+
+  return msg;
+}
+
+function sendWhatsapp() {
+  const phone = "595976730666"; // Paraguay +595 976 730 666
+  const msg = buildWhatsappMessage();
+  const waURL = "https://wa.me/" + phone + "?text=" + msg;
+  window.open(waURL, "_blank");
+}
+
+const openCartBtn = document.getElementById("openCartBtn");
+const closeCartBtn = document.getElementById("closeCartBtn");
+const cartOverlay = document.getElementById("cartOverlay");
+const cartPanel = document.getElementById("cartPanel");
+const sendBtn = document.getElementById("sendWhatsappBtn");
+
+openCartBtn.addEventListener("click", () => {
+  cartOverlay.classList.add("open");
+  cartPanel.classList.add("open");
+});
+
+closeCartBtn.addEventListener("click", () => {
+  cartOverlay.classList.remove("open");
+  cartPanel.classList.remove("open");
+});
+
+cartOverlay.addEventListener("click", (e) => {
+  if (e.target === cartOverlay) {
+    cartOverlay.classList.remove("open");
+    cartPanel.classList.remove("open");
+  }
+});
+
+sendBtn.addEventListener("click", sendWhatsapp);
+
+fetch("prices.json")
+  .then(r => r.json())
+  .then(data => {
+    renderCategoria(data.frutas || [], "grid-frutas", "frutas");
+    renderCategoria(data.hortalizas || [], "grid-hortalizas", "hortalizas");
+    renderCategoria(data.verdeos || [], "grid-verdeos", "verdeos");
+    renderCart();
+  })
+  .catch(err => {
+    console.error("Error cargando prices.json:", err);
+  });
+</script>
+</body>
+</html>
