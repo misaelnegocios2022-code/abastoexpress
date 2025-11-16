@@ -993,6 +993,9 @@ function crearProductoCard(prod, categoria) {
   const img = document.createElement("img");
   img.src = `assets/${categoria}/${prod.id}.jpg`;
   img.alt = prod.nombre;
+  img.addEventListener("error", () => {
+    img.src = "assets/logo/abasto_express.png";
+  });
   imgBox.appendChild(img);
 
   const info = document.createElement("div");
