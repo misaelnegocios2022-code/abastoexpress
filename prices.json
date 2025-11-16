@@ -3,13 +3,25 @@
     {
       "id": "aguacate",
       "nombre": "Aguacate",
-      "precio": 15000,
+      "precio": 17000,
+      "unidad": "kg"
+    },
+    {
+      "id": "banana",
+      "nombre": "Banana",
+      "precio": 11000,
       "unidad": "kg"
     },
     {
       "id": "ciruela",
       "nombre": "Ciruela",
       "precio": 35000,
+      "unidad": "kg"
+    },
+    {
+      "id": "kiwi",
+      "nombre": "Kiwi",
+      "precio": 40000,
       "unidad": "kg"
     },
     {
@@ -27,13 +39,13 @@
     {
       "id": "manzana_roja",
       "nombre": "Manzana roja",
-      "precio": 15000,
+      "precio": 18500,
       "unidad": "kg"
     },
     {
       "id": "manzana_verde",
       "nombre": "Manzana verde",
-      "precio": 18000,
+      "precio": 20000,
       "unidad": "kg"
     },
     {
@@ -45,13 +57,13 @@
     {
       "id": "murucuja",
       "nombre": "Murucuja",
-      "precio": 0,
+      "precio": 25000,
       "unidad": "kg"
     },
     {
       "id": "pera",
       "nombre": "Pera",
-      "precio": 15000,
+      "precio": 18000,
       "unidad": "kg"
     },
     {
@@ -63,13 +75,13 @@
     {
       "id": "pomelo",
       "nombre": "Pomelo",
-      "precio": 7000,
+      "precio": 9000,
       "unidad": "kg"
     },
     {
       "id": "uva",
       "nombre": "Uva",
-      "precio": 0,
+      "precio": 40000,
       "unidad": "kg"
     }
   ],
@@ -77,13 +89,13 @@
     {
       "id": "aji",
       "nombre": "Aji",
-      "precio": 0,
+      "precio": 40000,
       "unidad": "kg"
     },
     {
       "id": "ajo",
       "nombre": "Ajo",
-      "precio": 0,
+      "precio": 40000,
       "unidad": "kg"
     },
     {
@@ -95,7 +107,7 @@
     {
       "id": "berenjena",
       "nombre": "Berenjena",
-      "precio": 0,
+      "precio": 10000,
       "unidad": "kg"
     },
     {
@@ -107,25 +119,25 @@
     {
       "id": "cebolla_morada",
       "nombre": "Cebolla morada",
-      "precio": 16500,
+      "precio": 15000,
       "unidad": "kg"
     },
     {
       "id": "locote_amarillo",
       "nombre": "Locote amarillo",
-      "precio": 0,
+      "precio": 40000,
       "unidad": "kg"
     },
     {
       "id": "locote_rojo",
       "nombre": "Locote rojo",
-      "precio": 38000,
+      "precio": 33000,
       "unidad": "kg"
     },
     {
       "id": "locote_verde",
       "nombre": "Locote verde",
-      "precio": 13500,
+      "precio": 14000,
       "unidad": "kg"
     },
     {
@@ -143,13 +155,13 @@
     {
       "id": "pepino",
       "nombre": "Pepino",
-      "precio": 10500,
+      "precio": 8500,
       "unidad": "kg"
     },
     {
       "id": "remolacha",
       "nombre": "Remolacha",
-      "precio": 10000,
+      "precio": 9000,
       "unidad": "kg"
     },
     {
@@ -161,7 +173,7 @@
     {
       "id": "tomate_perita",
       "nombre": "Tomate perita",
-      "precio": 18000,
+      "precio": 10500,
       "unidad": "kg"
     },
     {
@@ -179,13 +191,25 @@
     {
       "id": "zapallo_nacional",
       "nombre": "Zapallo nacional",
-      "precio": 4500,
+      "precio": 5000,
+      "unidad": "kg"
+    },
+    {
+      "id": "zapallo_brasilero",
+      "nombre": "Zapallo brasileño",
+      "precio": 8000,
       "unidad": "kg"
     },
     {
       "id": "zucchini",
       "nombre": "Zucchini",
       "precio": 9000,
+      "unidad": "kg"
+    },
+    {
+      "id": "jengibre",
+      "nombre": "Jengibre",
+      "precio": 25000,
       "unidad": "kg"
     }
   ],
@@ -199,6 +223,12 @@
     {
       "id": "albahaca",
       "nombre": "Albahaca",
+      "precio": 3000,
+      "unidad": "unidad"
+    },
+    {
+      "id": "apio",
+      "nombre": "Apio",
       "precio": 3000,
       "unidad": "unidad"
     },
@@ -223,7 +253,7 @@
     {
       "id": "espinaca",
       "nombre": "Espinaca",
-      "precio": 2750,
+      "precio": 2500,
       "unidad": "kg"
     },
     {
