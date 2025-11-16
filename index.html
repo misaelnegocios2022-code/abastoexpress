@@ -870,19 +870,30 @@ function formatoGuarani(n) {
 const cart = {};
 
 function addToCart(prod) {
+  const esUnidad = (prod.unidad && prod.unidad.toLowerCase() === "unidad");
+  const paso = esUnidad ? 1 : 0.5; // primera carga: 1 unidad o 0.5 kg
   if (!cart[prod.id]) {
-    cart[prod.id] = { ...prod, qty: 1 };
+    cart[prod.id] = { ...prod, qty: paso };
   } else {
-    cart[prod.id].qty += 1;
+    const actual = cart[prod.id].qty || 0;
+    cart[prod.id].qty = Math.round((actual + paso) * 10) / 10;
   }
   renderCart();
 }
 
 function changeQty(id, delta) {
   if (!cart[id]) return;
-  cart[id].qty += delta;
-  if (cart[id].qty <= 0) {
+  const esUnidad = (cart[id].unidad && cart[id].unidad.toLowerCase() === "unidad");
+  const paso = esUnidad ? 1 : 0.1;
+  let nueva = (cart[id].qty || 0) + delta * paso;
+  // redondear a 1 decimal para kg
+  if (!esUnidad) {
+    nueva = Math.round(nueva * 10) / 10;
+  }
+  if (nueva <= 0) {
     delete cart[id];
+  } else {
+    cart[id].qty = nueva;
   }
   renderCart();
 }
@@ -908,7 +919,7 @@ function renderCart() {
 
   for (const pid in cart) {
     const item = cart[pid];
-    countAll += item.qty;
+    countAll += (item.qty || 0);
 
     const row = document.createElement("div");
     row.className = "cart-row";
@@ -928,7 +939,11 @@ function renderCart() {
     const qtyVal = document.createElement("div");
     qtyVal.style.minWidth = "24px";
     qtyVal.style.textAlign = "center";
-    qtyVal.textContent = item.qty;
+    if (item.unidad && item.unidad.toLowerCase() === "unidad") {
+      qtyVal.textContent = item.qty;
+    } else {
+      qtyVal.textContent = (Math.round((item.qty || 0) * 10) / 10).toFixed(1);
+    }
 
     const plusBtn = document.createElement("div");
     plusBtn.className = "qty-btn";
